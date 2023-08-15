@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-connexion',
@@ -9,7 +11,12 @@ export class ConnexionComponent {
   email: string = '';
   password: string = '';
 
+  constructor(private router: Router) {
+
+  }
+
   connexion() {
-    // Ajoutez ici la logique de connexion avec l'email et le mot de passe
+    this.router.navigate(['./page-connexion-director']);
+
   }
 }

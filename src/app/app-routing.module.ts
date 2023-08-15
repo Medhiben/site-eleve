@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
+import { ConnexionComponent } from './connexion/connexion.component';
+import { PageConnexionDirectorComponent } from './page-connexion-director/page-connexion-director.component';
+const routes: Routes = [
+  { path: '', component: ConnexionComponent },
+  { path: 'page-connexion-director.component', component: PageConnexionDirectorComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+  
+}
