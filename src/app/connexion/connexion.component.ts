@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -8,16 +10,24 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./connexion.component.scss']
 })
 export class ConnexionComponent {
-  email: string = '';
-  password: string = '';
+  user = {email : 'mramdani@email.com', password : 'abcdefgh'};
+  loginForm : FormGroup = new FormGroup(
+    {
+      email : new FormControl('mramdani@email.com', [Validators.required]),
+      password : new FormControl('abcdefgh', [Validators.required, Validators.minLength(8)]),
+    }) ;
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  connexion() {
-    // Simuler la connexion réussie ici
-    // ...
-
-    // Naviguer vers la page de connexion directe après la connexion
-    this.router.navigate(['page-connexion-director'], { relativeTo: this.route });
+  onSubmit() {
+    if(this.loginForm.value.email === this.user.email && this.loginForm.value.password === this.user.password){
+    this.router.navigate(["/home"]);
+    }else {
+      this.loginForm.setErrors({
+        incorrect : true
+      })   
+    }
   }
+
+  
 }
