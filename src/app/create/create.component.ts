@@ -12,7 +12,7 @@ export class CreateComponent {
     {
       nom : new FormControl(null, [Validators.required]),
       prenom : new FormControl(null, [Validators.required, Validators.required]),
-      age : new FormControl(null, [Validators.required]),
+      age : new FormControl(null, [Validators.required,Validators.min(1), Validators.max(120)]),
       classe : new FormControl(null, [Validators.required]),
       specialite : new FormControl(null, [Validators.required]),
       redouble : new FormControl(null, [Validators.required]),
