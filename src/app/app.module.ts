@@ -11,6 +11,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import { CreateComponent } from './create/create.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -18,6 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     ConnexionComponent,
     HomeComponent,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatSlideToggleModule,
     MatButtonModule,
     MatDividerModule,
-    MatIconModule
+    MatIconModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
