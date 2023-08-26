@@ -18,4 +18,8 @@ export class EleveService {
   getEleves(): Observable<Eleve[]> {
     return this.http.get<Eleve[]>(this.BASE_URL + '/eleves');
   }
+
+  sendEleves(eleve : Eleve[]) : Observable<Eleve[]> {
+  return this.http.post<Eleve[]>(this.BASE_URL + '/eleves', eleve)
+  };
 }

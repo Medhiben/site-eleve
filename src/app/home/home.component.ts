@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EleveService } from '../service/eleve.service';
 import { Eleve } from '../model/eleve';
 import { Router } from '@angular/router';

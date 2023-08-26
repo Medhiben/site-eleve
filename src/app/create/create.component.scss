@@ -1,0 +1,71 @@
+/* Réinitialiser les styles par défaut du formulaire */
+form {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Conteneur principal du formulaire */
+  .form-container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour les champs de saisie */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  select {
+    appearance: none;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-chevron-down' viewBox='0 0 16 16'><path d='M1 4.5a.5.5 0 0 1 .78-.416l6 4.5a.5.5 0 0 1 .22.416v.001a.5.5 0 0 1-.22.416l-6 4.5A.5.5 0 0 1 1 13V4.5z'/></svg>") no-repeat right 10px center;
+    background-size: 12px;
+    background-color: white;
+  }
+  
+  /* Styles pour les cases à cocher */
+  mat-checkbox {
+    margin-top: 10px;
+  }
+  
+  /* Styles pour le bouton */
+  button {
+    padding: 10px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 auto; 
+    display: block; 
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

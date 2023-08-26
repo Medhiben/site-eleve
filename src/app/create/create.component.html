@@ -10,7 +10,7 @@
         
   <label for="classe">Classe:</label>
   <select name="classe" id="classe" formControlName="classe">
-  <option value="">--Please choose an option--</option>
+  <option value="">--Choisissez une des options--</option>
   <option value="sixieme">6ème</option>
   <option value="cinquieme">5ème</option>
   <option value="quatrieme">4ème</option>
@@ -19,7 +19,7 @@
 
 <label for="specialite">Spécialité:</label>
   <select name="specialite" id="specialite" formControlName="specialite">
-  <option value="">--Please choose an option--</option>
+  <option value="">--Choisissez une des options--</option>
   <option value="science">Science</option>
   <option value="sport">Sport</option>
   <option value="musique">Musique</option>
@@ -27,16 +27,7 @@
   <option value="technologie">Technologie</option>
   <option value="arts">Arts</option>
 </select>
-
 <mat-checkbox class="example-margin" formControlName="redouble">Redouble</mat-checkbox>
-<button mat-button (click)="create()">Enregistrer</button>
-
-
-
-      <!-- <button type="submit">Se connecter</button> -->
-      <!-- <ng-container>
-        <p >erreur formulaire</p>
-      </ng-container> -->
-      <!-- {{createForm.value| json}} -->
+<button mat-button type="submit" (click)="create()">Enregistrer</button>
     </form>
     </div>

@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EleveService } from '../service/eleve.service';
+import { Eleve } from '../model/eleve';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 
 @Component({
@@ -8,6 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent {
+
+  constructor(private eleveservice : EleveService,private router: Router, private route: ActivatedRoute ){}
+
   createForm : FormGroup = new FormGroup(
     {
       nom : new FormControl(null, [Validators.required]),
@@ -19,7 +25,11 @@ export class CreateComponent {
 // nom prenom string, age number, classe specialite select option, redouble chekbox
     }) ;
   
-    create(){
-      console.log(this.createForm.value);
-    }
+    create() {
+    this.eleveservice.sendEleves(this.createForm.value).subscribe(
+      (response) => {
+        this.router.navigate(["/home"]);
+        console.log(response);
+      })
+    };
 }
