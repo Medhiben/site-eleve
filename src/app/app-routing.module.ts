@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { HomeComponent } from './home/home.component';
 import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
 const routes: Routes = [
   { path: '', component: ConnexionComponent },
   { path: 'home', component: HomeComponent },
   { path: 'create', component: CreateComponent },
-  { path: 'create/eleves/:id', component: CreateComponent }, 
+  { path: 'eleves/:id', component: EditComponent }, 
 
 ];
 

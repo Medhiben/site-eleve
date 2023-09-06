@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EleveService } from '../service/eleve.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
@@ -10,10 +10,16 @@ import { Eleve } from '../model/eleve';
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit{
   eleve!: Eleve;
+  eleveId!: string | null;
+
 
   constructor(private eleveservice : EleveService,private router: Router, private route: ActivatedRoute ){}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  
 
   createForm : FormGroup = new FormGroup(
     {
@@ -23,12 +29,9 @@ export class CreateComponent {
       classe : new FormControl(null, [Validators.required]),
       specialite : new FormControl(null, [Validators.required]),
       redouble : new FormControl(null, [Validators.required]),
-// nom prenom string, age number, classe specialite select option, redouble chekbox
     }) ;
 
-ngOnInit() {
-  }
-
+    
   
     create() {
     this.eleveservice.sendEleves(this.createForm.value).subscribe(

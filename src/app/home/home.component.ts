@@ -39,7 +39,7 @@ redirectTo() {
 
   editEleve(eleve: Eleve) {
     
-    this.route.navigate(['/create/eleves/:id']);
+    this.route.navigateByUrl('eleves/' + eleve.id);
   }
 
 }

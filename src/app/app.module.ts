@@ -14,6 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { CreateComponent } from './create/create.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     ConnexionComponent,
     HomeComponent,
     CreateComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
