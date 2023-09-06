@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', component: ConnexionComponent },
   { path: 'home', component: HomeComponent },
   { path: 'create', component: CreateComponent },
+  { path: 'create/eleves/:id', component: CreateComponent }, 
 
 ];
 

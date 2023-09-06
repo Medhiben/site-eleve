@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
- constructor(private eleveservice : EleveService, private route : Router ){}
+ constructor(private eleveservice : EleveService, private route : Router){}
  displayedColumns: string[] = [ 'nom','prenom','age','classe','specialite',
-  'redouble'];
- eleves : Eleve[] = [];
+  'redouble','edit'];
+  eleves: Eleve[] = [];
 
  ngOnInit() {
   this.eleveservice.getEleves().subscribe(
@@ -22,11 +22,26 @@ export class HomeComponent implements OnInit {
       console.log(response);
     }
   )
+
+  this.eleveservice.getEleve().subscribe(
+    (response) => {
+      this.eleves = response;
+      console.log(response);
+    }
+  )
+
+
 }
 
 redirectTo() {
   this.route.navigate(["/create"]);
   }
+
+  editEleve(eleve: Eleve) {
+    
+    this.route.navigate(['/create/eleves/:id']);
+  }
+
 }
 
 
