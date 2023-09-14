@@ -5,6 +5,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Eleve } from '../model/eleve';
 
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -48,7 +49,36 @@ export class EditComponent {
         }
       );
     }
-  }
+
+    
+    };
+    
+
+
+    updateEleve() {
+      if (this.createForm.valid) {
+        const modifyEleve: Eleve = {
+          id: this.eleve.id,
+          nom: this.createForm.get('nom')?.value,
+          prenom: this.createForm.get('prenom')?.value,
+          age: this.createForm.get('age')?.value,
+          classe: this.createForm.get('classe')?.value,
+          specialite: this.createForm.get('specialite')?.value,
+          redouble: this.createForm.get('redouble')?.value,
+        };
+    
+        this.eleveservice.putEleve(modifyEleve).subscribe(
+          (response) => {
+            console.log('elève mis à jour avec succès', response);
+            this.router.navigate(['/home']); 
+          },
+          (error) => {
+            console.error('Erreur lors de la mise à jour de l élève', error);
+          }
+        );
+      }
+    }
+    
 
   
     create() {
@@ -62,4 +92,3 @@ export class EditComponent {
 }
 
 
-  

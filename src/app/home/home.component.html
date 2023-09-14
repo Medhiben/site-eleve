@@ -50,6 +50,13 @@
       <button mat-button (click)="editEleve(eleve)">edit</button>
     </td>
   </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Suppression </th>
+    <td mat-cell *matCellDef="let eleve">
+      <button mat-button (click)="deleteEleve(eleve)"> delete </button>
+    </td>
+  </ng-container>
   
 
 </table>

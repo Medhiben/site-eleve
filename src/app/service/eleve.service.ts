@@ -27,4 +27,15 @@ export class EleveService {
     return this.http.get<Eleve>(this.BASE_URL + '/eleves/' + eleveId);
   }
 
+  putEleve(eleve: Eleve) : Observable<Eleve> {
+    return this.http.put<Eleve>(this.BASE_URL + '/eleves/' + eleve.id , eleve);
+  }
+
+  deleteEleve(eleveId: any) : Observable<any> {
+    return this.http.delete<any>(this.BASE_URL + '/eleves/' + eleveId);
+  }
+
+
+
+
 }

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
  constructor(private eleveservice : EleveService, private route : Router){}
  displayedColumns: string[] = [ 'nom','prenom','age','classe','specialite',
-  'redouble','edit'];
+  'redouble','edit','delete'];
   eleves: Eleve[] = [];
 
  ngOnInit() {
@@ -23,12 +23,6 @@ export class HomeComponent implements OnInit {
     }
   )
 
-  this.eleveservice.getEleves().subscribe(
-    (response) => {
-      this.eleves = response;
-      console.log(response);
-    }
-  )
 
 
 }
@@ -42,6 +36,20 @@ redirectTo() {
     this.route.navigateByUrl('eleves/' + eleve.id);
   }
 
+  
+  deleteEleve(eleve: Eleve){
+    this.eleveservice.deleteEleve(eleve.id)
+    .subscribe( eleve => {
+      this.eleveservice.getEleves().subscribe(
+        (response) => {
+          this.eleves = response;
+          console.log(response);
+        }
+      )
+     alert('elève supprimé avec succès');
+  })
+
+  }
 }
 
 
