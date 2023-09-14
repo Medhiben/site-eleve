@@ -23,8 +23,8 @@ export class EleveService {
   return this.http.post<Eleve[]>(this.BASE_URL + '/eleves', eleve)
   };
 
-   getEleve(): Observable<Eleve[]> {
-    return this.http.get<Eleve[]>(this.BASE_URL + '/eleves/id');
+   getEleve(eleveId: any): Observable<Eleve> {
+    return this.http.get<Eleve>(this.BASE_URL + '/eleves/' + eleveId);
   }
 
 }

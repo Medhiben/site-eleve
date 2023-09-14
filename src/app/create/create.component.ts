@@ -16,8 +16,8 @@ export class CreateComponent implements OnInit{
 
 
   constructor(private eleveservice : EleveService,private router: Router, private route: ActivatedRoute ){}
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {
+    
   }
   
 

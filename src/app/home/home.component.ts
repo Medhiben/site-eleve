@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
     }
   )
 
-  this.eleveservice.getEleve().subscribe(
+  this.eleveservice.getEleves().subscribe(
     (response) => {
       this.eleves = response;
       console.log(response);

@@ -14,21 +14,11 @@ export class EditComponent {
 
   eleve!: Eleve;
   eleveId!: string | null;
-  eleveService: any;
-
+  createForm! : FormGroup;
 
   constructor(private eleveservice : EleveService,private router: Router, private route: ActivatedRoute ){}
 
-  createForm : FormGroup = new FormGroup(
-    {
-      nom : new FormControl('', Validators.required),
-      prenom : new FormControl('', Validators.required),
-      age : new FormControl(null, [Validators.min(1), Validators.max(120)]),
-      classe : new FormControl(null, [Validators.required]),
-      specialite : new FormControl(null, [Validators.required]),
-      redouble : new FormControl(null, [Validators.required]),
-    }) ;
-
+   
     ngOnInit() {
      if(this.route.snapshot.paramMap) {
       this.eleveId = this.route.snapshot.paramMap.get('id');
@@ -40,23 +30,21 @@ export class EditComponent {
     this.eleveId = this.route.snapshot.paramMap.get('id');
 
     if (this.eleveId) {
-      this.eleveService.getEleve(this.eleveId).subscribe(
+      this.eleveservice.getEleve(this.eleveId).subscribe(
         (response: Eleve) => {
           this.eleve = response;
           console.log(response);
-          this.createForm.patchValue({
-            response : new FormGroup({
-              nom: new FormControl('response.nom', Validators.required),
-              prenom: new FormControl('response.prenom', Validators.required),
-              age: new FormControl('response.age', [Validators.min(1), Validators.max(120)]),
-              classe: new FormControl('response.classe', [Validators.required]),
-              specialite: new FormControl('response.specialite', [Validators.required]),
-              redouble: new FormControl('response.redouble', [Validators.required]),
-            }) ,
+          this.createForm = new FormGroup({
+              nom: new FormControl(this.eleve.nom, Validators.required),
+              prenom: new FormControl(this.eleve.prenom, Validators.required),
+              age: new FormControl(this.eleve.age, [Validators.min(1), Validators.max(120)]),
+              classe: new FormControl(this.eleve.classe, [Validators.required]),
+              specialite: new FormControl(this.eleve.specialite, [Validators.required]),
+              redouble: new FormControl(this.eleve.redouble, [Validators.required]),
           });
         },
         (error: any) => {
-          console.error('Erreur lors de la récupération de l\'élève', error);
+          console.error('Erreur lors de la récupération de l élève', error);
         }
       );
     }
