@@ -3,11 +3,11 @@
     <ng-container *ngIf="createForm">
     <form [formGroup]="createForm">
         <label for="nom">Nom:</label>
-        <input type="text" id="nom" formControlName="nom" required>
+        <input type="text" id="nom" class="custom-margin" formControlName="nom" required>
         <label for="prenom">Prenom:</label>
-        <input type="text" id="prenom" formControlName="prenom" required>
+        <input type="text" id="prenom" class="custom-margin" formControlName="prenom" required>
         <label for="age">Age:</label>
-        <input type="number" id="age" formControlName="age" required>
+        <input type="number" id="age" class="custom-margin" formControlName="age" required>
         
   <label for="classe">Classe:</label>
   <select name="classe" id="classe" formControlName="classe" required>

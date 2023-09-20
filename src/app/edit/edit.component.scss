@@ -12,6 +12,7 @@ form {
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    margin-top: 20px;
   }
   
   h2 {
@@ -67,3 +68,8 @@ form {
   button:hover {
     background-color: #0056b3;
   }
+
+    /* Styles pour les champs spécifiques avec une marge extérieure */
+.custom-margin {
+  margin-left: -7px; /* Ajoute une marge extérieure de -7px autour des champs spécifiques */
+}
